@@ -1,1 +1,7 @@
-<p>lista works!</p>
+<table>
+  <tr *ngFor="let dado of dados" (click)="navegarParaFormulario(dado.id)">
+    <td>{{ dado.nome}}</td>
+    <td>{{ dado.dataNascimento }}</td>
+    <td>{{ dado.classificacao }}</td>
+  </tr>
+</table>
