@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, BehaviorSubject, throwError } from 'rxjs';
+import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,13 +22,28 @@ export class DadosService {
   }
 
   salvarDado(dado: any): Observable<any> {
+    const dadosIguais = this.dados.some(d => this.saoIguais(d, dado));
+
+    if (dadosIguais) {
+      return throwError('Usuário já existe na lista.');
+    }
+
     if (!dado.nome || !dado.dataNascimento || !dado.classificacao) {
       return throwError('Todos os campos são obrigatórios.');
     }
+
     dado.id = this.generateUniqueId();
     this.dados.push(dado);
     this.dadosSubject.next([...this.dados]);
     return of(dado);
+  }
+
+  private saoIguais(dado1: any, dado2: any): boolean {
+    return (
+      dado1.nome.toLowerCase() === dado2.nome.toLowerCase() &&
+      dado1.dataNascimento === dado2.dataNascimento &&
+      dado1.classificacao === dado2.classificacao
+    );
   }
 
   excluirDado(id: number): Observable<any> {
@@ -39,11 +54,5 @@ export class DadosService {
 
   private generateUniqueId(): number {
     return this.dados.length + 1;
-  }
-  
-  clearFormData(dado: any): void {
-    dado.nome = '';
-    dado.dataNascimento = '';
-    dado.classificacao = '';
   }
 }

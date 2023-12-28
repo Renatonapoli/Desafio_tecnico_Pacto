@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DadosService } from 'src/app/service/dados.service';
 
@@ -13,11 +14,14 @@ export class FormularioComponent implements OnInit {
   dataNascimento: string = '';
   classificacao: string = '';
 
+  @ViewChild('formulario') formulario!: NgForm;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private dadosService: DadosService
   ) {}
+  
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -39,7 +43,7 @@ export class FormularioComponent implements OnInit {
     }
   }
 
-  salvar() {
+  salvar(formulario: NgForm) {
     const dado = {
       id: this.id,
       nome: this.nome,
@@ -50,8 +54,8 @@ export class FormularioComponent implements OnInit {
     this.dadosService.salvarDado(dado).subscribe(
       () => {
         alert('Dado salvo com sucesso');
+        formulario.reset(); 
         this.router.navigate(['/lista']);
-        this.dadosService.clearFormData(dado); 
       },
       error => {
         alert(error); // Mostrar mensagem de erro

@@ -21,10 +21,6 @@ export class ListaComponent {
     })
   }
 
-  navegarParaFormulario(id: number) {
-    this.router.navigate(['/formulario', id])
-  }
-
   excluirDado(id: number) {
     this.dadosService.excluirDado(id).subscribe(() => {
       alert('Dado excluído com sucesso!');

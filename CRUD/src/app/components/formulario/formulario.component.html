@@ -1,4 +1,6 @@
-<form (ngSubmit)="salvar()">
+<h1>Fomulário</h1>
+
+<form #formulario="ngForm" (ngSubmit)="salvar(formulario)">
   <label for="nome">Nome:</label>
   <input type="text" name="nome" [(ngModel)]="nome" required />
 
