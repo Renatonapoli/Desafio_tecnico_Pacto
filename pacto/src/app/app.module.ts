@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PessoaListaComponent } from './pessoa-lista/pessoa-lista.component';
-import { PessoaFormularioComponent } from './pessoa-formulario/pessoa-formulario.component';
+import { PessoaListaComponent } from '../app/components/pessoa-lista/pessoa-lista.component';
+import { PessoaFormularioComponent } from '../app/components/pessoa-formulario/pessoa-formulario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PessoaListaComponent,
-    PessoaFormularioComponent
+    PessoaFormularioComponent,
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

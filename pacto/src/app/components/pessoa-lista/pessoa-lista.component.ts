@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Pessoa } from '../../model/peessoa.model';
+import { Component, OnInit  } from '@angular/core';
+import { Pessoa } from '../../model/pessoa.lista.model';
 import { PessoaService } from '../../service/pessoa.service';
 
 @Component({
@@ -7,8 +7,10 @@ import { PessoaService } from '../../service/pessoa.service';
   templateUrl: './pessoa-lista.component.html',
   styleUrls: ['./pessoa-lista.component.css'],
 })
+
 export class PessoaListaComponent implements OnInit {
   pessoas: Pessoa[] = [];
+  router: any;
 
   constructor(private pessoaService: PessoaService) {}
 
@@ -20,5 +22,10 @@ export class PessoaListaComponent implements OnInit {
     this.pessoaService.listarPessoas().subscribe((pessoas) => {
       this.pessoas = pessoas;
     });
+  }
+
+  navegarParaFormulario(id: number): void {
+    
+    this.router.navigate(['/pessoa', id]);
   }
 }
