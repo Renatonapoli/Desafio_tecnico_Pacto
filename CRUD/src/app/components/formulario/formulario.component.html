@@ -1,14 +1,16 @@
-<h1>Fomulário</h1>
+<body>
+  <h1>Fomulário</h1>
 
-<form #formulario="ngForm" (ngSubmit)="salvar(formulario)">
-  <label for="nome">Nome:</label>
-  <input type="text" name="nome" [(ngModel)]="nome" required />
+  <form #formulario="ngForm" (ngSubmit)="salvar(formulario)">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" [(ngModel)]="nome" required />
 
-  <label for="dataNascimento">Data de Nascimento:</label>
-  <input type="text" name="dataNascimento" [(ngModel)]="dataNascimento" required />
+    <label for="dataNascimento">Data de Nascimento:</label>
+    <input type="text" name="dataNascimento" [(ngModel)]="dataNascimento" required />
 
-  <label for="classificacao">Classificação:</label>
-  <input type="text" name="classificacao" [(ngModel)]="classificacao" required />
+    <label for="classificacao">Classificação:</label>
+    <input type="text" name="classificacao" [(ngModel)]="classificacao" required />
 
-  <button type="submit">Salvar</button>
-</form>
+    <button type="submit">Salvar</button>
+  </form>
+</body>

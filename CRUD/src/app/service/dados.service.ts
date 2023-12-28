@@ -1,3 +1,5 @@
+//TODO Na Service é o lugar onde é feito as chamadas de APIs externas
+
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 
