@@ -1,1 +1,13 @@
-<p>formulario works!</p>
+<form>
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" [(ngModel)]="nome" />
+
+  <label for="dataNascimento">Data de Nascimento:</label>
+  <input type="text" id="dataNascimento" [(ngModel)]="dataNascimento" />
+
+  <label for="classificacao">Classificação:</label>
+  <input type="text" id="classificacao" [(ngModel)]="classificacao" />
+
+  <button type="button" (click)="salvar()">Salvar</button>
+  <button type="button" (click)="excluir()">Excluir</button>
+</form>
