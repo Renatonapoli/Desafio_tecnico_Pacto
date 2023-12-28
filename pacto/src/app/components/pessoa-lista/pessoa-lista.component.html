@@ -1,7 +1,0 @@
-<table>
-  <tr *ngFor="let pessoa of pessoas" (click)="navegarParaFormulario(pessoa.id !== undefined ? pessoa.id : 0)">
-    <td>{{ pessoa.nome }}</td>
-    <td>{{ pessoa.dataNascimento | date }}</td>
-    <td>{{ pessoa.classificacao }}</td>
-  </tr>
-</table>
