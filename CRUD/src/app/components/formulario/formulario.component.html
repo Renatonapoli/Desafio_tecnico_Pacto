@@ -1,13 +1,12 @@
-<form>
+<form (ngSubmit)="salvar()">
   <label for="nome">Nome:</label>
-  <input type="text" id="nome" [(ngModel)]="nome" />
+  <input type="text" name="nome" [(ngModel)]="nome" required />
 
   <label for="dataNascimento">Data de Nascimento:</label>
-  <input type="text" id="dataNascimento" [(ngModel)]="dataNascimento" />
+  <input type="text" name="dataNascimento" [(ngModel)]="dataNascimento" required />
 
   <label for="classificacao">Classificação:</label>
-  <input type="text" id="classificacao" [(ngModel)]="classificacao" />
+  <input type="text" name="classificacao" [(ngModel)]="classificacao" required />
 
-  <button type="button" (click)="salvar()">Salvar</button>
-  <button type="button" (click)="excluir()">Excluir</button>
+  <button type="submit">Salvar</button>
 </form>

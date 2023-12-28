@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DadosService } from 'src/app/service/dados.service';
 @Component({
   selector: 'app-lista',
@@ -8,7 +9,7 @@ import { DadosService } from 'src/app/service/dados.service';
 export class ListaComponent {
   dados: any[] = [];
 
-  constructor(private dadosService: DadosService) {}
+  constructor(private router:Router, private dadosService: DadosService) {}
 
   ngOnInit(): void {
     this.obterDados()
@@ -18,5 +19,16 @@ export class ListaComponent {
     this.dadosService.obterDados().subscribe(dados => {
       this.dados = dados
     })
+  }
+
+  navegarParaFormulario(id: number) {
+    this.router.navigate(['/formulario', id])
+  }
+
+  excluirDado(id: number) {
+    this.dadosService.excluirDado(id).subscribe(() => {
+      alert('Dado excluído com sucesso!');
+      this.obterDados(); // Atualiza a lista após a exclusão
+    });
   }
 }
