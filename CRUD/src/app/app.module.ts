@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ListaComponent } from './components/lista/lista.component';
+import { DadosComponent } from './service/dados/dados.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormularioComponent,
-    ListaComponent
+    ListaComponent,
+    DadosComponent
   ],
   imports: [
     BrowserModule,
