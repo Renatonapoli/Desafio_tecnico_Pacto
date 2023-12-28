@@ -1,0 +1,28 @@
+<body>
+
+
+  <h1>Listagem</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Data de Nascimento</th>
+        <th>Classificação</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dado of dados" [routerLink]="['/formulario', dado.id]">
+        <td>{{ dado.id }}</td>
+        <td>{{ dado.nome }}</td>
+        <td>{{ dado.dataNascimento }}</td>
+        <td>{{ dado.classificacao }}</td>
+        <td>
+          <button (click)="excluirDado(dado.id)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
