@@ -5,8 +5,9 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 
 const routes: Routes = [
   {path: 'lista', component: ListaComponent},
+  {path: 'formulario', component: FormularioComponent},
   {path: 'formulario/:id', component: FormularioComponent},
-  {path: '', redirectTo: '/lista', pathMatch: 'full'}
+  {path: '', redirectTo: 'formulario', pathMatch: 'full'}
 ];
 
 @NgModule({
